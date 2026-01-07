@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>lgnvsky — Stats</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root{
+      --bg:#0b0b10;
+      --panel:#141422;
+      --panel2:#10101a;
+      --text:#e9e9f3;
+      --muted:#a8a8c2;
+      --line:rgba(255,255,255,.1);
+      --accent:#8b5cf6;
+      --good:#34d399;
+      --warn:#fbbf24;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg,#0b0b10,#07070d);
+      color:var(--text);
+    }
+    .container{
+      width:min(1000px,92%);
+      margin:0 auto;
+      padding:20px 0 40px;
+    }
+    .card{
+      background: linear-gradient(180deg, #191a28, #131421);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius:14px;
+      margin-bottom:14px;
+    }
+    .head{
+      padding:14px 16px;
+      border-bottom:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    h1{margin:0;font-size:28px}
+    h2{margin:0;font-size:16px;letter-spacing:.3px}
+    .badge{
+      background:var(--accent);
+      color:#0b0b10;
+      font-weight:900;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+    }
+    .body{padding:16px}
+    .meta span{
+      display:inline-block;
+      margin-right:8px;
+      margin-bottom:6px;
+      padding:4px 8px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      color:var(--muted);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+    .stat{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:12px;
+      background:rgba(255,255,255,.02);
+    }
+    .stat .k{font-size:12px;color:var(--muted);font-weight:800}
+    .stat .v{font-size:22px;font-weight:900;margin-top:4px}
+    .good{color:var(--good)}
+    .warn{color:var(--warn)}
+
+    .links a{
+      display:block;
+      padding:12px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      margin-bottom:10px;
+      font-weight:900;
+      text-decoration:none;
+      color:var(--text);
+      background:rgba(255,255,255,.02);
+    }
+    .links a:hover{
+      border-color:var(--accent);
+      background:rgba(139,92,246,.12);
+    }
+
+    .note{
+      color:rgba(233,233,243,.65);
+      font-size:12px;
+      line-height:1.5;
+    }
+    footer{
+      text-align:center;
+      margin-top:20px;
+      color:rgba(233,233,243,.6);
+      font-size:12px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <!-- ПРОФИЛЬ -->
+    <div class="card">
+      <div class="head">
+        <h1>Ruslan "lgnvsky" Musagaliyev </h1>
+        <span class="badge">CS2</span>
+      </div>
+      <div class="body">
+        <div class="meta">
+          <span>Team: -</span>
+          <span>Region: Kazakhstan</span>
+          <span>Age: 20</span>
+        </div>
+        </p>
+      </div>
+    </div>
+
+<style>
+/* ====== FULL COMPONENT (3 blocks) ====== */
+.ps{
+  --bg1:#191a28;
+  --bg2:#131421;
+  --card1:#1e2032;
+  --card2:#17182a;
+  --line:rgba(255,255,255,.10);
+  --text:#e9e9f3;
+  --muted:#9aa0b4;
+  --accent:#8b5cf6;
+  --good:#22c55e;
+  --bad:#ef4444;
+  --warn:#facc15;
+  --bar:#e5e7eb;
+
+  font-family: Arial, Helvetica, sans-serif;
+  color:var(--text);
+  width:100%;
+  max-width: 1050px;
+}
+
+.ps *{ box-sizing:border-box; }
+
+.ps__panel{
+  background: linear-gradient(180deg, var(--bg1), var(--bg2));
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.ps__head{
+  padding:16px 18px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.ps__title{
+  font-weight:900;
+  font-size:16px;
+}
+
+.ps__tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 12px;
+  border-radius:999px;
+  background: rgba(139,92,246,.18);
+  border:1px solid rgba(139,92,246,.35);
+  color:var(--text);
+  font-weight:900;
+  font-size:12px;
+  white-space:nowrap;
+}
+
+.ps__tag.red{
+  background: rgba(127,29,29,.60);
+  border:1px solid rgba(239,68,68,.35);
+}
+
+.ps__body{ padding:16px 18px; }
+
+/* ====== CORE GRID ====== */
+.ps__core{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:14px;
+}
+
+@media (max-width: 900px){
+  .ps__core{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 560px){
+  .ps__core{ grid-template-columns: 1fr; }
+}
+
+.ps__card{
+  background: linear-gradient(180deg, var(--card1), var(--card2));
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px;
+  min-width:0;
+}
+
+.ps__k{
+  color:var(--muted);
+  font-weight:800;
+  font-size:12px;
+}
+
+.ps__v{
+  margin-top:6px;
+  font-weight:900;
+  font-size:28px;
+  line-height:1.1;
+}
+
+.ps__good{ color:var(--good); }
+.ps__bad{ color:var(--bad); }
+.ps__warn{ color:var(--warn); }
+
+/* ====== BARS BLOCK ====== */
+.ps__barsHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.ps__barsHeader .ps__sub{
+  color:var(--muted);
+  font-weight:800;
+  font-size:13px;
+}
+
+.ps__rows{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.ps__row{
+  display:grid;
+  grid-template-columns: 160px 1fr 70px;  /* label | bar | bench */
+  gap:12px;
+  align-items:center;
+}
+
+@media (max-width: 740px){
+  .ps__row{ grid-template-columns: 130px 1fr 60px; }
+}
+@media (max-width: 560px){
+  .ps__row{ grid-template-columns: 1fr; gap:6px; }
+}
+
+.ps__label{
+  font-weight:900;
+  font-size:13px;
+  letter-spacing:.2px;
+}
+
+.ps__bench{
+  text-align:right;
+  font-weight:900;
+  font-size:13px;
+  color:#d1d5db;
+  white-space:nowrap;
+}
+
+.ps__barwrap{
+  position:relative;
+  height:10px;
+  border-radius:999px;
+  background: rgba(255,255,255,.12);
+  overflow:hidden;
+}
+
+.ps__fill{
+  height:100%;
+  background: var(--bar);
+  border-radius:999px;
+}
+
+.ps__marker{
+  position:absolute;
+  top:-5px;
+  width:2px;
+  height:20px;
+  background:#fff;
+  opacity:.95;
+}
+
+.ps__val{
+  justify-self:end;
+  font-weight:900;
+  font-size:13px;
+}
+
+@media (max-width: 560px){
+  .ps__val{ justify-self:start; margin-top:2px; }
+}
+
+/* ====== LINKS ====== */
+.ps__links{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.ps__link{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:14px 14px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background: linear-gradient(180deg, rgba(30,32,50,.55), rgba(23,24,42,.55));
+  text-decoration:none;
+  color:var(--text);
+}
+
+.ps__link:hover{
+  border-color: rgba(139,92,246,.45);
+  background: linear-gradient(180deg, rgba(139,92,246,.10), rgba(23,24,42,.55));
+}
+
+.ps__linkLeft{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+}
+
+.ps__icon{
+  width:28px;
+  height:28px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  display:grid;
+  place-items:center;
+  background: rgba(255,255,255,.03);
+  font-size:14px;
+}
+
+.ps__arrow{
+  color:var(--muted);
+  font-weight:900;
+}
+</style>
+
+<div class="ps">
+
+  <!-- 1) CORE STATISTICS -->
+  <div class="ps__panel">
+    <div class="ps__head">
+      <div class="ps__title">Core statistics of all time in CS2</div>
+    </div>
+
+    <div class="ps__body">
+      <div class="ps__core">
+        <div class="ps__card">
+          <div class="ps__k">Rating</div>
+          <div class="ps__v ps__good">1.26</div>
+        </div>
+        <div class="ps__card">
+          <div class="ps__k">K/D</div>
+          <div class="ps__v ps__good">1.22</div>
+        </div>
+        <div class="ps__card">
+          <div class="ps__k">ADR</div>
+          <div class="ps__v ps__good">92.6</div>
+        </div>
+        <div class="ps__card">
+          <div class="ps__k">HS%</div>
+          <div class="ps__v">54%</div>
+        </div>
+        <div class="ps__card">
+          <div class="ps__k">Maps played in CS2</div>
+          <div class="ps__v">2642</div>
+        </div>
+        <div class="ps__card">
+          <div class="ps__k">AIM</div>
+          <div class="ps__v">88.3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ps__panel" style="margin-top:14px;">
+    <div class="ps__head" style="border-bottom:none; padding-bottom:10px;">
+      <div class="ps__barsHeader" style="width:100%;">
+        <div class="ps__sub">Data from last 30 matches</div>
+
+      </div>
+    </div>
+
+    <div class="ps__body" style="padding-top:6px;">
+      <div class="ps__rows">
+
+        <div class="ps__row">
+          <div class="ps__label">AIM</div>
+          <div class="ps__barwrap">
+            <div class="ps__fill" style="width:86%"></div>
+            <div class="ps__marker" style="left:82%"></div>
+          </div>
+          <div class="ps__bench">88</div>
+        </div>
+
+        <div class="ps__row">
+          <div class="ps__label">UTILITY</div>
+          <div class="ps__barwrap">
+            <div class="ps__fill" style="width:61%"></div>
+            <div class="ps__marker" style="left:62%"></div>
+          </div>
+          <div class="ps__bench">65</div>
+
+        </div>
+
+        <div class="ps__row">
+          <div class="ps__label">POSITIONING</div>
+          <div class="ps__barwrap">
+            <div class="ps__fill" style="width:65%"></div>
+            <div class="ps__marker" style="left:57%"></div>
+          </div>
+          <div class="ps__bench">64</div>
+        </div>
+
+        <div class="ps__row">
+          <div class="ps__label">OPENING DUELS</div>
+          <div class="ps__barwrap">
+            <div class="ps__fill" style="width:72%"></div>
+            <div class="ps__marker" style="left:55%"></div>
+          </div>
+          <div class="ps__bench">+0.77</div>
+        </div>
+
+        <div class="ps__row">
+          <div class="ps__label">CLUTCHING</div>
+          <div class="ps__barwrap">
+            <div class="ps__fill" style="width:68%"></div>
+            <div class="ps__marker" style="left:78%"></div>
+          </div>
+          <div class="ps__bench">+10.93</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3) EXTERNAL LINKS -->
+  <div class="ps__panel" style="margin-top:12px;">
+    <div class="ps__head">
+      <div class="ps__title">External statistics links</div>
+    </div>
+
+    <div class="ps__body">
+      <div class="ps__links">
+        <a class="ps__link" href="https://www.faceit.com/ru/players/lgnvsky" target="_blank" rel="noopener">
+          <div class="ps__linkLeft">
+            <div class="ps__icon"><img width="24" height="24" src="https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/24/external-face-it-the-leading-competitive-gaming-platform-for-online-multiplayer-games-logo-shadow-tal-revivo.png" alt="external-face-it-the-leading-competitive-gaming-platform-for-online-multiplayer-games-logo-shadow-tal-revivo"/></div>
+            <div>FACEIT</div>
+          </div>
+          <div class="ps__arrow">›</div>
+        </a>
+
+        <a class="ps__link" href="https://leetify.com/@lgnvsky/" target="_blank" rel="noopener">
+          <div class="ps__linkLeft">
+            <div class="ps__icon">📊</div>
+            <div>Leetify</div>
+          </div>
+          <div class="ps__arrow">›</div>
+        </a>
+
+        <a class="ps__link" href="https://steamcommunity.com/id/lgnvsky" target="_blank" rel="noopener">
+          <div class="ps__linkLeft">
+            <div class="ps__icon"><img width="25" height="25" src="https://img.icons8.com/ios-glyphs/30/steam.png" alt="steam"/></div>
+            <div>Steam</div>
+          </div>
+          <div class="ps__arrow">›</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+    <footer>
+      © lgnvsky — personal CS2 stats page
+    </footer>
+
+  </main>
+</body>
+</html>
